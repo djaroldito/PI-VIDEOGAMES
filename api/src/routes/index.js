@@ -8,9 +8,9 @@ const videogame = require('./videogame.js');
 const genres = require('./genres.js');
 
 //Configuro todos los routers
-router.use('/', videogames);
-router.use('/', genres);
-router.use('/', videogame);
+router.use('/videogames', videogames);
+router.use('/genres', genres);
+router.use('/videogame', videogame);
 
 // router.get('/', (req, res) => {
 //     res.send('<h1>Hello World!</h1>')

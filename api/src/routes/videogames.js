@@ -8,7 +8,7 @@ const { Videogame, Genre } = require('../db');
 
 //TODO -----> GET a "/videogames" <--------
 
-router.get('/videogames', async (req, res) => {
+router.get('/', async (req, res) => {
     //busco en la DB si tengo juegos creados y me traigo todos
     let videogamesDb = await Videogame.findAll({
         include: Genre

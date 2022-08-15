@@ -12,7 +12,7 @@ const { Videogame, Genre } = require('../db');
 //ACA EN DB POR ID
 
 
-router.get('/videogame/:idVideogame', async (req, res) => {
+router.get('/:idVideogame', async (req, res) => {
   
     const { idVideogame } = req.params
    //console.log(idVideogame)
@@ -60,7 +60,7 @@ router.get('/videogame/:idVideogame', async (req, res) => {
     
 })
 
-router.post('/videogame', async (req, res) => {
+router.post('/', async (req, res) => {
     let { name, description, releaseDate, rating, genres, platforms } = req.body;
     platforms = platforms.join('- ')
     if(!name || !description || !rating)

@@ -7,7 +7,6 @@ import { GET_ALL_GAMES,
 
 const initialState = {
     allGames: [],
-    gamesBackUp: [],
     gameDetails: {},
     genres: [],
     filtered: []
@@ -19,7 +18,6 @@ export default function rootReducer(state = initialState, action) {
                 return {
                 ...state,
                 allGames: action.payload, 
-                gamesBackUp: action.payload,
                 filtered: action.payload
             };
             case GET_VIDEOGAME_DETAIL:
@@ -31,7 +29,7 @@ export default function rootReducer(state = initialState, action) {
             case SEARCH_BY_NAME:
                 return {
                 ...state,
-                gamesBackUp: action.payload,
+               
                 filtered: action.payload
             };
 
@@ -43,22 +41,25 @@ export default function rootReducer(state = initialState, action) {
                 
             case FILTER_BY:
                     if (action.payload === 'default'){
-                        return {...state, filtered: state.gamesBackUp}
+                        return {...state, filtered: state.allGames}
+                     
                         }
-                      
+
+                                   
                     if(action.payload === 'DB'){
-                        return {...state, filtered: state.gamesBackUp.filter((game)=> (typeof game.id) === 'string')}
+                        return {...state, filtered: state.allGames.filter((game)=> (typeof game.id) === 'string')}
                         }
                       
                     if(action.payload === 'API'){
-                        return {...state, filtered: state.gamesBackUp.filter((game)=> (typeof game.id) === 'number')}
+                        return {...state, filtered: state.allGames.filter((game)=> (typeof game.id) === 'number')}
                         }
                       
                     else {
-                        return {...state, filtered: state.gamesBackUp.filter((game) => {
+                        return {...state, filtered: state.allGames.filter((game) => {
                             return game.genres.find((genre) => {
                                 return genre === action.payload})
-                        })}
+                        }
+                        )}
                     };
 
             case ORDER_BY:
@@ -84,7 +85,7 @@ export default function rootReducer(state = initialState, action) {
                     return {...state, filtered: [...state.filtered].sort((prev,next) => next.rating - prev.rating)}
                     }     
                 else {
-                    return {...state, filtered: state.gamesBackUp}
+                    return {...state, filtered: state.allGames}
                     };
         default: 
             return state;

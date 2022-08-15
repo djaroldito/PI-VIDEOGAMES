@@ -14,6 +14,7 @@ function GameDetails(props) {
     // me carga los details del juego
     useEffect(() => {
     getVideogameDetail(idVideogame);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[idVideogame])
 
     return (

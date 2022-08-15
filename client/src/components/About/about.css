@@ -5,9 +5,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: black;
+    background-color: bisque;
 }
 
 .container-about h1 {
-    font-size: medium;
-    color: aliceblue;
+    font-size: x-large;
+    color: rgb(239, 18, 158);
+    border: 100px;
+    border-color: black;
+
 }

@@ -7,8 +7,6 @@ import Pagination from '../Pagination/Pagination'
 import FilteredBy from '../FilterBy/FilterBy'
 import './videogames.css'
 import { getAllGames, getGenres } from '../../actions/actions'
-//import { getGenres } from '../../actions/actions'
-//import { getAllGames } from '../../actions/actions'
 import notFound from '../../img/llorando.gif'
 import loading from '../../img/conecting.gif'
 
@@ -21,25 +19,29 @@ function Videogames({allGames, getAllGames, getGenres }) {
     //* indices de la paginación:
     const indexOfLastCard = currentPage * cardPerPage
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
+    console.log(indexOfLastCard, indexOfFirstCard)
 
     var currentCards; //"cards" que se deben mostrar en la pantalla
+    
 
     // en caso de que al buscar un juego en particular no encuentra ninguno
     if(typeof allGames === 'string'){
         currentCards = allGames
+      
     }else {
         currentCards = allGames.slice(indexOfFirstCard, indexOfLastCard) //uso los indices para "fraccionar que juegos muestro"
+        console.log(currentCards)
     }
     
     const paginate = (pageNumber) => {
          setCurrentPage(pageNumber)
     }
-    //no puse las dependencias para que se re renderice siempre pero
-    //deberia poner las dependencias dentro de las llaves [getAllGames, Getnres] 
+    //debería utilizar el useCallBack. Un hook que me permite gusrdar en memoria el resultado de una funcion
+    //leer documentacio si hay tiempo para que funcione 100% perfecto
     useEffect (() => {
         getAllGames()
         getGenres()
-    },[])
+    }, [])
 
     return (
       <div className="container">

@@ -2,7 +2,6 @@ import {React, useState} from 'react'
 import { connect } from 'react-redux'
 import { searchByName, getAllGames } from '../../actions/actions'
 import './SearchBar.css'
-import loading from '../../img/conecting.gif'
 
 
 function SearchBar({searchByName, getAllGames}) {

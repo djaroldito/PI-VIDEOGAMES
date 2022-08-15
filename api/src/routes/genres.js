@@ -7,7 +7,7 @@ const { Genre } = require('../db');
 
 //TODO -----> GET a "/genres" <--------
 
-router.get('/genres', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         // si ya los tengo cargados en la DB los consumo desde alli.
         const genresDb = await Genre.findAll();

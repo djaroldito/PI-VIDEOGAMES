@@ -16,6 +16,7 @@ function App() {
           <Route exact path="/videogames" component={Videogames} />
           <Route exact path="/crearjuego" component={CrearJuego} />
           <Route exact path='/videogame/:idVideogame' component={GameDetails} />
+        
           <Route exact path='/about' component={About} />
           <Route path='*' component={Page404} />
           </Switch>

@@ -97,13 +97,15 @@ function CrearJuego(props) {
                 <h2>CREA TU JUEGO!!!-</h2>
                 <div className="div-cont">
                     <form onSubmit={handleSubmit} onChange={handleChange}>
+                        
+                                         
                         <label htmlFor='name' className="title-name"><strong>Name: </strong></label>
                         <br />
                         <input className="name" placeholder='Name' type="text" id='name' name='name' autoComplete="off"/>
                         <br />
                         <label htmlFor="description" className="title-name"><strong>Description: </strong></label>
                         <br />
-                        <textarea className="name" name='description' placeholder='Description...' id="description" cols="30" rows="3" />
+                        <textarea className="name" name='description' placeholder='Description...' id="description" cols="30" rows="3"/>
                         <br />
                         <label htmlFor="date" className="title-name"><strong>Release Date: </strong></label>
                         <br />
@@ -222,6 +224,5 @@ function CrearJuego(props) {
         </>
     )
 }
-
 
 export default CrearJuego

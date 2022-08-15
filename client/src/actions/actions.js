@@ -30,6 +30,7 @@ export function searchByName(name) {
     return axios
       .get(`/videogames?name=${name}`)
       .then((res) => {
+        console.log(res)
         dispatch({ type: SEARCH_BY_NAME, payload: res.data });
       })
       .catch((err) => {
@@ -44,6 +45,7 @@ export function getVideogameDetail(id) {
     axios
       .get(`/videogame/${id}`)
       .then((res) => {
+        console.log(res)
         dispatch({ type: GET_VIDEOGAME_DETAIL, payload: res.data });
       })
       .catch((err) => {
@@ -58,6 +60,7 @@ export function getGenres() {
     axios
       .get(`/genres`)
       .then((res) => {
+        console.log(res)
         dispatch({ type: GET_GENRES, payload: res.data });
       })
       .catch((err) => {
@@ -69,6 +72,7 @@ export function getGenres() {
 //* Ordenamiento
 export function orderBy(order) {
   return function (dispatch) {
+    console.log(order)
     dispatch({ type: ORDER_BY, payload: order });
   };
 }
@@ -76,6 +80,7 @@ export function orderBy(order) {
 //* Filtrado
 export function filterBy(order) {
   return function (dispatch) {
+    console.log(order)
     dispatch({ type: FILTER_BY, payload: order });
   };
 }

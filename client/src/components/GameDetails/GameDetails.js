@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {React, useEffect} from 'react'
 import { connect }from 'react-redux'
 import { getVideogameDetail } from '../../actions/actions'
@@ -14,8 +15,8 @@ function GameDetails(props) {
     // me carga los details del juego
     useEffect(() => {
     getVideogameDetail(idVideogame);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[idVideogame])
+    
+    }, [])
 
     return (
       <div className="container-detail">
@@ -67,6 +68,9 @@ function GameDetails(props) {
                       }`}
                     </p>
                   }
+
+
+
                   <NavLink to="/videogames">
                     <button>Volver</button>
                   </NavLink>

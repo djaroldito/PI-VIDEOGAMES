@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react'
 import NavBar from '../NavBar/NavBar'
 import SearchBar from '../SearchBar/SearchBar'
@@ -19,7 +20,7 @@ function Videogames({allGames, getAllGames, getGenres }) {
     //* indices de la paginación:
     const indexOfLastCard = currentPage * cardPerPage
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
-    console.log(indexOfLastCard, indexOfFirstCard)
+    //console.log(indexOfLastCard, indexOfFirstCard)
 
     var currentCards; //"cards" que se deben mostrar en la pantalla
     
@@ -30,7 +31,7 @@ function Videogames({allGames, getAllGames, getGenres }) {
       
     }else {
         currentCards = allGames.slice(indexOfFirstCard, indexOfLastCard) //uso los indices para "fraccionar que juegos muestro"
-        console.log(currentCards)
+      //  console.log(currentCards)
     }
     
     const paginate = (pageNumber) => {

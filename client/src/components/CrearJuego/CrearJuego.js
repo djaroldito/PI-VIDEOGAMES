@@ -17,6 +17,7 @@ function CrearJuego(props) {
     });
 
     const handleChange = e => {
+       
         if (e.target.parentNode.parentNode.id === 'genres') {
             if (e.target.checked) {
                 setForm(prevState => ({

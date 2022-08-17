@@ -42,7 +42,7 @@ function Videogames({allGames, getAllGames, getGenres }) {
     useEffect (() => {
         getAllGames()
         getGenres()
-    }, [])
+    }, [getAllGames,getGenres])
 
     return (
       <div className="container">
@@ -56,7 +56,7 @@ function Videogames({allGames, getAllGames, getGenres }) {
           currentPage={currentPage}
         />
         <div className="games-div">
-          {currentCards.length > 1 ? (
+          {currentCards.length >= 1 ? (
             currentCards.map((g) => (
               <Videogame
                 key={g.id}

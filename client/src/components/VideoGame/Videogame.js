@@ -5,7 +5,7 @@ import photo from '../../img/created.jpg'
 
 
 export default function Videogame(props) {
-    
+    console.log(props)
     return (
       <div className="container-game">
         <div className="title-game">{props.name}</div>

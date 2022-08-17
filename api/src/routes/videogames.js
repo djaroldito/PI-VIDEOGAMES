@@ -91,38 +91,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// router.post('/videogames', async (req, res) => {
-//     let { name, description, releaseDate, rating, genres, platforms } = req.body;
-//     platforms = platforms.join('- ')
-//     if(!name || !description || !rating)
-//     return res.status(400).json({msg:"faltan datos"})
-//     try {
-//         const gameCreated = await Videogame.findOrCreate({ //devuelvo un array (OJOOO!!!!)
-          
-//             where: {
-//                 name,
-//                 description,
-//                 releaseDate,
-//                 rating,
-//                 platforms,
-//             }
-            
-//         })
-    
-
-        
-//         await gameCreated[0].setGenres(genres); // relaciono ID genres al juego creado
-        
-       
-//         res.json(gameCreated)
-//         //res.send('Created succesfully, saludos desde el BACK!!').json(gameCreated)
-//     } catch (err) {
-//         console.log(err);
-//     }
-   
-// })
-
-
 router.put('/:id', async (req, res) => {
   
     try {

@@ -8,23 +8,7 @@ import {
   FILTER_BY,
 } from "./constantes";
 
-//* Trae todos los juegos (DB + API)
-export function getAllGames() {
-  return function (dispatch) {
-    return axios
-      .get("/videogames/")
-      .then((res) => {
-        console.log(res)
-        dispatch({ type: GET_ALL_GAMES, payload: res.data });
-      })
-      .catch((err) => {
-        return err;
-      });
-  };
-}
 
-
-//* Trae todos los juegos encontrados por nombre (QUERY: "name")
 export function searchByName(name) {
   return function (dispatch) {
     return axios
@@ -38,8 +22,19 @@ export function searchByName(name) {
       });
   };
 }
-
-//* Trae los detalles del juego por pasado por (params :ID)
+//
+export function getGenres() {
+  return async function (dispatch) {
+    try {
+      var res = await axios.get('/genres');
+      return dispatch({ 
+        type: 'GET_GENRES', payload: res.data,
+      });
+    } catch (error) {
+        console.log (error);
+      }
+    };
+}
 export function getVideogameDetail(id) {
   return function (dispatch) {
     axios
@@ -53,15 +48,11 @@ export function getVideogameDetail(id) {
       });
   };
 }
-
-//* Trae todos los generos
-export function getGenres() {
+export function getAllGames() {
   return function (dispatch) {
-    axios
-      .get(`/genres`)
+    return axios.get("/videogames/")
       .then((res) => {
-        console.log(res)
-        dispatch({ type: GET_GENRES, payload: res.data });
+        dispatch({ type: GET_ALL_GAMES, payload: res.data });
       })
       .catch((err) => {
         return err;

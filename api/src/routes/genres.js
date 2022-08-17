@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
     try {
         // si ya los tengo cargados en la DB los consumo desde alli.
         const genresDb = await Genre.findAll();
-       // console.log(genresDb)
         if (genresDb.length) return res.json(genresDb)
+        console.log(genresDb)
        
         
         //else --> los voy a buscar a la API
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
                 name: game.name
             }
         });
-        //console.log(genresREADY)
+       // console.log(genresREADY)
         res.json(genresREADY)
     } catch (err) {
         return console.log(err)

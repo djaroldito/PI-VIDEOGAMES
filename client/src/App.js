@@ -6,6 +6,7 @@ import GameDetails from './components/GameDetails/GameDetails';
 import Landing from './components/Landing/Landing';
 import Page404 from './components/Page404/page404';
 
+
 import Videogames from './components/Videogames/Videogames';
 
 function App() {

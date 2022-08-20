@@ -91,24 +91,28 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
-  
-    try {
-     let id = req.params.id;
-     let { name, description, rating } = req.body;
-     await db.Videogame.update(
-        {name, description, rating},
-        {
-            where:{
-                id,
-            },
-        }
 
-     );
-     res.status(200).send('videogame actualizado')
-    } catch (err) {
-        console.log(err);
-    }
-    })
 
 module.exports = router;
+
+
+
+// router.put('/:id', async (req, res) => {
+  
+//     try {
+//      let id = req.params.id;
+//      let { name, description, rating } = req.body;
+//      await db.Videogame.update(
+//         {name, description, rating},
+//         {
+//             where:{
+//                 id,
+//             },
+//         }
+
+//      );
+//      res.status(200).send('videogame actualizado')
+//     } catch (err) {
+//         console.log(err);
+//     }
+//     })

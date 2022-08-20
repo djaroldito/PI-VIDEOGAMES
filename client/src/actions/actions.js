@@ -27,6 +27,7 @@ export function getGenres() {
   return async function (dispatch) {
     try {
       var res = await axios.get('/genres');
+      console.log(res)
       return dispatch({ 
         type: 'GET_GENRES', payload: res.data,
       });
@@ -52,6 +53,7 @@ export function getAllGames() {
   return function (dispatch) {
     return axios.get("/videogames/")
       .then((res) => {
+        console.log(res)
         dispatch({ type: GET_ALL_GAMES, payload: res.data });
       })
       .catch((err) => {

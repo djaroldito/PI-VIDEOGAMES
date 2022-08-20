@@ -12,6 +12,7 @@ router.use('/videogames', videogames);
 router.use('/genres', genres);
 router.use('/videogame', videogame);
 
+
 // router.get('/', (req, res) => {
 //     res.send('<h1>Hello World!</h1>')
 // });

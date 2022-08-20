@@ -16,7 +16,7 @@ function GameDetails(props) {
     useEffect(() => {
     getVideogameDetail(idVideogame);
     
-    }, [])
+    },[])
 
     return (
       <div className="container-detail">

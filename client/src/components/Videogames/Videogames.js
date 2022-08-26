@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react'
 import NavBar from '../NavBar/NavBar'
 import SearchBar from '../SearchBar/SearchBar'
@@ -42,7 +41,7 @@ function Videogames({allGames, getAllGames, getGenres }) {
     useEffect (() => {
         getAllGames()
         getGenres()
-    }, [getAllGames,getGenres])
+    }, [getAllGames,getGenres])  
 
     return (
       <div className="container">

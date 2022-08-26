@@ -57,6 +57,7 @@ router.get('/', async (req, res) => {
             return console.log(err)
         }
     }
+
     //ESTO FILTRA LA DB POR REALESE DATE ME LO PIDIERON EN LA CORRECION
     // else if (req.query.releaseDate){
     //     try {
@@ -69,7 +70,6 @@ router.get('/', async (req, res) => {
             
     //     }
     // }
-
 
      else  {
         // SI NO ENTRO POT QUERIES --> voy a buscar todos los juegos a la API
@@ -103,9 +103,9 @@ router.get('/', async (req, res) => {
     }
 });
 
+
 //ESTE PUT FUNCIONA FALTA HACERLE EL FRONT
-// router.put('/:id', async (req, res) => {
-  
+//router.put('/:id', async (req, res) => {
 //     try {
 //      let id = req.params.id;
 //      let { name, description, rating } = req.body;
@@ -123,6 +123,7 @@ router.get('/', async (req, res) => {
 //         console.log(err);
 //     }
 //     })
+
 
 
 module.exports = router;

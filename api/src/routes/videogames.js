@@ -7,14 +7,12 @@ const axios = require('axios').default;
 const { Videogame, Genre } = require('../db');
 
 //TODO -----> GET a "/videogames" <--------
-
+//
 router.get('/', async (req, res) => {
     //busco en la DB si tengo juegos creados y me traigo todos
     let videogamesDb = await Videogame.findAll({
         include: Genre
-        });
- 
-        
+        });       
 
     //Parseo el objeto
     videogamesDb = JSON.stringify(videogamesDb);
@@ -50,7 +48,6 @@ router.get('/', async (req, res) => {
                     genres: game.genres.map(g => g.name)
                 }
             });
-
             //como antes me traje TODOS de la base de datos, si entro por queries, solo filtro los que coincidan con la busqueda
             const filteredGamesDb = videogamesDb.filter(g => g.name.toLowerCase().includes(req.query.name.toLowerCase()));
             //doy prioridad a la DB, y sumo todos, y corto el array en 15
@@ -59,7 +56,22 @@ router.get('/', async (req, res) => {
         } catch (err) {
             return console.log(err)
         }
-    } else {
+    }
+    //ESTO FILTRA LA DB POR REALESE DATE ME LO PIDIERON EN LA CORRECION
+    // else if (req.query.releaseDate){
+    //     try {
+    //         const date = videogamesDb.filter(d => d.releaseDate.includes(req.query.releaseDate));
+    //         const results1 = [date].splice(0,15);
+    //         return res.json(results1)
+            
+    //     } catch (error) {
+    //         return console.log(error)
+            
+    //     }
+    // }
+
+
+     else  {
         // SI NO ENTRO POT QUERIES --> voy a buscar todos los juegos a la API
         try {
             let pages = 0;
@@ -91,12 +103,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-
-module.exports = router;
-
-
-
+//ESTE PUT FUNCIONA FALTA HACERLE EL FRONT
 // router.put('/:id', async (req, res) => {
   
 //     try {
@@ -116,3 +123,8 @@ module.exports = router;
 //         console.log(err);
 //     }
 //     })
+
+
+module.exports = router;
+
+

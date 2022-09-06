@@ -69,8 +69,6 @@ function GameDetails(props) {
                     </p>
                   }
 
-
-
                   <NavLink to="/videogames">
                     <button>Volver</button>
                   </NavLink>

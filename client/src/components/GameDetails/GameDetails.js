@@ -1,20 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {React, useEffect} from 'react'
-import { connect }from 'react-redux'
+import { useDispatch, useSelector}from 'react-redux'
 import { getVideogameDetail } from '../../actions/actions'
 import Navbar from '../NavBar/NavBar'
 import photo from '../../img/created.jpg'
 import { NavLink } from 'react-router-dom'
 import './gamedetail.css'
 
-function GameDetails(props) {
-
-    const {getVideogameDetail, gameDetails} = props
+export default function GameDetails(props) {
+    const dispatch = useDispatch()
+    let gameDetails = useSelector((state)=>state.gameDetails)
     const {idVideogame} = props.match.params;
 
-    // me carga los details del juego
     useEffect(() => {
-    getVideogameDetail(idVideogame);
+    dispatch(getVideogameDetail(idVideogame));
+    
     
     },[])
 
@@ -85,10 +85,4 @@ function GameDetails(props) {
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        gameDetails: state.gameDetails
-    }
-}
 
-export default connect(mapStateToProps, {getVideogameDetail}) (GameDetails)

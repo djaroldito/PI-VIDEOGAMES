@@ -61,15 +61,23 @@ router.get('/:idVideogame', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+
+    
+
     let { name, description, releaseDate, rating, genres, platforms } = req.body;
     platforms = platforms.join('- ')
+
+    const capitalizar = (name)=> {
+        return name.charAt(0).toUpperCase() + name.slice(1);
+      }
+
     if(!name || !description || !rating)
     return res.status(400).json({msg:"faltan datos"})
     try {
         const gameCreated = await Videogame.findOrCreate({ //devuelvo un array (OJOOO!!!!)
           
             where: {
-                name,
+                name: capitalizar(name),
                 description,
                 releaseDate,
                 rating,
@@ -84,9 +92,9 @@ router.post('/', async (req, res) => {
         
        
         res.json(gameCreated)
-        //res.send('Created succesfully, saludos desde el BACK!!').json(gameCreated)
+        
     } catch (err) {
-        console.log(err);
+        throw new Error(err)
     }
    
 })

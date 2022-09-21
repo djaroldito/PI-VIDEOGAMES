@@ -1,12 +1,15 @@
 import {React, useState} from 'react'
+import { useDispatch } from 'react-redux'
 import NavBar from '../NavBar/NavBar'
 import axios from 'axios'
 import './CrearJuego.css'
+import { getAllGames } from '../../actions/actions'
+
 
 function CrearJuego(props) {
-
+    const dispatch = useDispatch()
     const [errors, setErrors] = useState({ form: 'Must complete the form' });
-
+  
     const [form, setForm] = useState({
         name: '',
         description: '',
@@ -23,7 +26,7 @@ function CrearJuego(props) {
                 setForm(prevState => ({
                     ...prevState,
                     genres: form.genres.concat(e.target.value)
-                }))
+            }))
             } else {
                 setForm(prevState => ({
                     ...prevState,
@@ -87,7 +90,10 @@ function CrearJuego(props) {
         axios.post('http://localhost:3001/videogame', form)
                   .then(res => console.log(res.data));
         alert(`${form.name} Creado Correctamente`)
+        
+        dispatch(getAllGames())
         props.history.push('/videogames') 
+        //dispatch(getAllGames())
     }
 
     return (

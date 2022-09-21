@@ -1,12 +1,5 @@
 import axios from "axios";
-import {
-  GET_ALL_GAMES,
-  SEARCH_BY_NAME,
-  GET_VIDEOGAME_DETAIL,
-  GET_GENRES,
-  ORDER_BY,
-  FILTER_BY,
-} from "./constantes";
+
 
 
 export function searchByName(name) {
@@ -15,7 +8,7 @@ export function searchByName(name) {
       .get(`/videogames?name=${name}`)
       .then((res) => {
         console.log(res)
-        dispatch({ type: SEARCH_BY_NAME, payload: res.data });
+        dispatch({ type: 'SEARCH_BY_NAME', payload: res.data });
       })
       .catch((err) => {
         return err;
@@ -42,7 +35,7 @@ export function getVideogameDetail(id) {
       .get(`/videogame/${id}`)
       .then((res) => {
         console.log(res)
-        dispatch({ type: GET_VIDEOGAME_DETAIL, payload: res.data });
+        dispatch({ type: 'GET_VIDEOGAME_DETAIL', payload: res.data });
       })
       .catch((err) => {
         return err;
@@ -54,7 +47,7 @@ export function getAllGames() {
     return axios.get("/videogames/")
       .then((res) => {
         console.log(res)
-        dispatch({ type: GET_ALL_GAMES, payload: res.data });
+        dispatch({ type: 'GET_ALL_GAMES', payload: res.data });
       })
       .catch((err) => {
         return err;
@@ -62,11 +55,17 @@ export function getAllGames() {
   };
 }
 
+export function volverAhome(){
+  return function (dispatch){
+    dispatch({type:'VOLVER_A_HOME'})
+  }
+}
+
 //* Ordenamiento
 export function orderBy(order) {
   return function (dispatch) {
     console.log(order)
-    dispatch({ type: ORDER_BY, payload: order });
+    dispatch({ type: 'ORDER_BY', payload: order });
   };
 }
 
@@ -74,6 +73,6 @@ export function orderBy(order) {
 export function filterBy(order) {
   return function (dispatch) {
     console.log(order)
-    dispatch({ type: FILTER_BY, payload: order });
+    dispatch({ type: 'FILTER_BY', payload: order });
   };
 }

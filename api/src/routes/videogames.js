@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
             const results = [...filteredGamesDb, ...gamesREADY].splice(0, 15);
             return res.json(results)
         } catch (err) {
-            return console.log(err)
+            throw new Error(err)
         }
     }
 
@@ -97,8 +97,8 @@ router.get('/', async (req, res) => {
             }
             return res.json(results)
         } catch (err) {
-            console.log(err)
-            return res.sendStatus(500)
+            res.sendStatus(500)
+            throw new Error(err) 
         }
     }
 });

@@ -1,10 +1,11 @@
 import {React, useState} from 'react'
 import { connect } from 'react-redux'
-import { searchByName, getAllGames } from '../../actions/actions'
+import { searchByName, getAllGames, volverAhome } from '../../actions/actions'
 import './SearchBar.css'
 
 
-function SearchBar({searchByName, getAllGames}) {
+
+function SearchBar({searchByName, volverAhome}) {
 
     const [input, setInput] = useState({
         buscar: ''
@@ -24,8 +25,8 @@ function SearchBar({searchByName, getAllGames}) {
     }
 
     const handleOnClickAll = () => {
-  
-        getAllGames()
+      //getAllGames()
+        volverAhome()
         setInput({
             buscar: ''
         });
@@ -45,11 +46,12 @@ function SearchBar({searchByName, getAllGames}) {
           Buscar
         </button>
         <button className="btn" onClick={handleOnClickAll}>
-          CargarTodos
+          Volver a Todos
+         
           
         </button>
       </div>
     );
 }
 
-export default connect(null, { searchByName, getAllGames })(SearchBar)
+export default connect(null, { searchByName, getAllGames, volverAhome })(SearchBar)

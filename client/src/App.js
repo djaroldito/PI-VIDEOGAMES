@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from './components/About/About';
 import CrearJuego from './components/CrearJuego/CrearJuego';
 import GameDetails from './components/GameDetails/GameDetails';

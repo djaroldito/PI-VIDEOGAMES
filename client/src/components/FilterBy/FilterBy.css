@@ -7,16 +7,18 @@
     padding: 10px;
     margin: 20px;
     width: 400px;
-    font-family: 'Press Start 2P';
-  
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .option {
     margin: 5px;
-    font-family: 'Press Start 2P';
+    color: blueviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
 }
 
 .optionGroup {
     padding: 10px;
-    font-family: 'Press Start 2P';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: aqua;
 }

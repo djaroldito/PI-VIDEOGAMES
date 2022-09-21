@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
        // console.log(genresREADY)
         res.json(genresREADY)
     } catch (err) {
-        return console.log(err)
+        throw new Error(err)
     }
 })
 

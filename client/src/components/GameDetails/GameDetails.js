@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {React, useEffect} from 'react'
 import { useDispatch, useSelector}from 'react-redux'
-import { getVideogameDetail } from '../../actions/actions'
+import { getVideogameDetail, clean } from '../../actions/actions'
 import Navbar from '../NavBar/NavBar'
 import photo from '../../img/created.jpg'
 import { NavLink } from 'react-router-dom'
@@ -12,12 +12,17 @@ export default function GameDetails(props) {
     let gameDetails = useSelector((state)=>state.gameDetails)
     const {idVideogame} = props.match.params;
 
-    useEffect(() => {
-    dispatch(getVideogameDetail(idVideogame));
+    // useEffect(() => {
+    // dispatch(getVideogameDetail(idVideogame));}
+    // return dispatch(clean()){}
     
-    
-    },[])
+    // ,[])
 
+    useEffect(() => {
+      dispatch(getVideogameDetail(idVideogame));
+      return ()=> dispatch(clean())
+    }, [dispatch, idVideogame]);
+  
     return (
       <div className="container-detail">
         <Navbar />

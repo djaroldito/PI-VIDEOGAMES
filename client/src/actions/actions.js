@@ -61,6 +61,12 @@ export function volverAhome(){
   }
 }
 
+export function clean(){
+  return function (dispatch){
+    dispatch({type:'CLEAN'})
+  }
+}
+
 //* Ordenamiento
 export function orderBy(order) {
   return function (dispatch) {

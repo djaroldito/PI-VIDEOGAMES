@@ -58,18 +58,18 @@ router.get('/', async (req, res) => {
         }
     }
 
-    //ESTO FILTRA LA DB POR REALESE DATE ME LO PIDIERON EN LA CORRECION
-    // else if (req.query.releaseDate){
-    //     try {
-    //         const date = videogamesDb.filter(d => d.releaseDate.includes(req.query.releaseDate));
-    //         const results1 = [date].splice(0,15);
-    //         return res.json(results1)
+   // ESTO FILTRA LA DB POR REALESE DATE ME LO PIDIERON EN LA CORRECION
+    else if (req.query.releaseDate){
+        try {
+            const date = videogamesDb.filter(d => d.releaseDate.includes(req.query.releaseDate));
+            const results1 = date
+            return res.json(results1)
             
-    //     } catch (error) {
-    //         return console.log(error)
+        } catch (error) {
+            return res.status(400).json('no existe el videogame')
             
-    //     }
-    // }
+        }
+    }
 
      else  {
         // SI NO ENTRO POT QUERIES --> voy a buscar todos los juegos a la API
@@ -103,7 +103,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-
 //ESTE PUT FUNCIONA FALTA HACERLE EL FRONT
 //router.put('/:id', async (req, res) => {
 //     try {
@@ -123,7 +122,6 @@ router.get('/', async (req, res) => {
 //         console.log(err);
 //     }
 //     })
-
 
 
 module.exports = router;

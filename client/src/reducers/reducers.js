@@ -17,6 +17,12 @@ export default function rootReducer(state = initialState, action) {
                     //backup : [...state.filteredVideogames]
             };
 
+            case 'CLEAN':
+                return{
+                    ...state,
+                    gameDetails: {}
+                }
+
             case 'VOLVER_A_HOME':
                 return {...state,
                     filtered: state.gamesBackUp

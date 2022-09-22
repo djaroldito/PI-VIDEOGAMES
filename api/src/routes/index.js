@@ -6,16 +6,13 @@ const APIKEY = process.env.YOUR_API_KEY
 const videogames = require('./videogames.js');
 const videogame = require('./videogame.js');
 const genres = require('./genres.js');
+const released = require('./released')
 
 //Configuro todos los routers
 router.use('/videogames', videogames);
 router.use('/genres', genres);
 router.use('/videogame', videogame);
-
-
-// router.get('/', (req, res) => {
-//     res.send('<h1>Hello World!</h1>')
-// });
+router.use('/released', released)
 
 module.exports = router;
 

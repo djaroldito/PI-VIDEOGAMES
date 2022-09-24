@@ -58,7 +58,7 @@ export default function Videogames() {
           currentPage={currentPage}
         />
         <div className="games-div">
-          {currentCards.length > 1 ? (
+          {currentCards.length >= 1 ? (
             currentCards.map((g) => (
               <Videogame
                 key={g.id}

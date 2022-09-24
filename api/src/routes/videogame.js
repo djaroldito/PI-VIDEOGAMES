@@ -81,7 +81,8 @@ router.post('/', async (req, res) => {
                 description,
                 releaseDate,
                 rating,
-                platforms,
+                platforms
+                
             }
             
         })
